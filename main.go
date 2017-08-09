@@ -117,9 +117,10 @@ func (s *Server) Serve(c net.PacketConn) error {
 		req = new(stun.Message)
 	)
 	for {
-		if err := s.serveConn(c, res, req); err != nil {
+		err := s.serveConn(c, res, req)
+		if err != nil {
 			log.Errorf("serve: %v", err)
-			return err
+			//return err
 		}
 		res.Reset()
 		req.Reset()
