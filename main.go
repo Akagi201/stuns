@@ -93,7 +93,6 @@ func (s *Server) serveConn(c net.PacketConn, res, req *stun.Message) error {
 	log.Debugf("read %d bytes from %s", n, addr)
 
 	if _, err = req.Write(buf[:n]); err != nil {
-		log.Errorf("Write: %v", err)
 		return err
 	}
 	if err = basicProcess(addr, buf[:n], req, res); err != nil {
@@ -119,7 +118,7 @@ func (s *Server) Serve(c net.PacketConn) error {
 	for {
 		err := s.serveConn(c, res, req)
 		if err != nil {
-			log.Errorf("serve: %v", err)
+			log.Debugf("serve: %v", err)
 			//return err
 		}
 		res.Reset()
