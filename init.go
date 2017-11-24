@@ -38,7 +38,7 @@ func init() {
 		parser.ParseArgs(args)
 	}
 
-	log.Infof("stuns opts: %+v", opts)
+	log.Debugf("stuns opts: %+v", opts)
 }
 
 func init() {

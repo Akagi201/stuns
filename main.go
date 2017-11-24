@@ -7,7 +7,7 @@ import (
 	_ "net/http/pprof"
 	"strings"
 
-	"github.com/ernado/stun"
+	"github.com/gortc/stun"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 )
